@@ -2,6 +2,8 @@
 
 **A complete implementation of the numerical pipeline: mesh parsing, sparse matrix construction, finite element assembly, boundary conditions, and an iterative linear solver.**
 
+![Finite element solution of the Poisson equation on the unit disk](figures/solution_surface.png)
+
 This project solves a two-dimensional Poisson problem using linear triangular finite elements. The numerical core is written directly in C, including the compressed sparse row (CSR) data structure and conjugate gradient (CG) solver. OpenMP provides shared-memory parallelism, and Gmsh supplies the mesh. No external FEM framework or numerical linear algebra library is used by the solver.
 
 The central challenge was turning the finite element formulation into a correct, memory-efficient implementation that could handle more than **1.6 million unknowns**, then optimizing and parallelizing it without compromising numerical correctness.
